@@ -7,6 +7,6 @@ REPO_ROOT="${HACK_DIR}/.."
   all \
   github.com/cuijxin/k8scrds/pkg/generated \
   github.com/cuijxin/k8scrds/pkg/apis \
-  k8scrds:v1 \
+  networkcrd:v1 \
   --go-header-file hack/boilerplate/boilerplate.go.txt \
   "$@"
