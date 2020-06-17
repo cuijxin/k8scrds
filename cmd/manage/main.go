@@ -4,12 +4,13 @@ import (
 	"flag"
 	"time"
 
-	"github.com/docker/cli/kubernetes/client/clientset"
 	"github.com/golang/glog"
-	"k8s.io/client-go/informers"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
-	"knative.dev/pkg/signals"
+
+	clientset "github.com/cuijxin/k8scrds/pkg/generated/clientset/versioned"
+	informers "github.com/cuijxin/k8scrds/pkg/generated/informers/externalversions"
+	"github.com/cuijxin/k8scrds/pkg/signals"
 )
 
 var (
