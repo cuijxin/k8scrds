@@ -8,6 +8,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 
+	"github.com/cuijxin/k8scrds/pkg/controller"
 	clientset "github.com/cuijxin/k8scrds/pkg/generated/clientset/versioned"
 	informers "github.com/cuijxin/k8scrds/pkg/generated/informers/externalversions"
 	"github.com/cuijxin/k8scrds/pkg/signals"
@@ -41,8 +42,7 @@ func main() {
 
 	networkInformerFactory := informers.NewSharedInformerFactory(networkClient, time.Second*30)
 
-	controller := NewController(kubeClient, networkClient,
-		networkInformerFactory.Samplecrd().V1().Networks())
+	controller := controller.NewController(kubeClient, networkClient, networkInformerFactory.Networkcrd().V1().Networks())
 
 	go networkInformerFactory.Start(stopCh)
 
